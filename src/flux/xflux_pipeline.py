@@ -241,8 +241,8 @@ class XFluxPipeline:
                 if ip_local_path is not None:
                     self.set_ip(local_path=ip_local_path)
                 else:
-                    self.set_ip(repo_id="xlabs-ai/flux-ip-adapter",
-                                name="flux-ip-adapter.safetensors")
+                    self.set_ip(repo_id="xlabs-ai/flux-ip-adapter2",
+                                name="ip_adapter.safetensors")
         seed = int(seed)
         if seed == -1:
             seed = torch.Generator(device="cpu").seed()
