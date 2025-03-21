@@ -4,6 +4,28 @@
 - RunPod account
 - Docker installed locally (for building and pushing the image)
 
+## Testing Locally
+
+Before deploying to RunPod, you can test your Docker container locally:
+
+```bash
+# Build the Docker image
+docker build -t x-flux:local .
+
+# Run the container with GPU support
+docker run --gpus all -p 7860:7860 x-flux:local
+
+# If you don't have a GPU or want to test on CPU only
+docker run -p 7860:7860 x-flux:local python gradio_demo.py --device cpu
+```
+
+Once the container is running, open your browser and navigate to:
+```
+http://localhost:7860
+```
+
+You should see the Gradio interface for your Flux demo.
+
 ## Steps to Deploy
 
 ### 1. Build and Push the Docker Image

@@ -1,6 +1,10 @@
-FROM pytorch/pytorch:2.5.0-cuda12.1-cudnn8-runtime
+FROM pytorch/pytorch:2.3.0-cuda11.8-cudnn8-runtime
 
 WORKDIR /app
+
+# Set non-interactive installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
 
 # Install basic dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
