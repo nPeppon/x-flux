@@ -112,7 +112,7 @@ def create_demo(
         ckpt_dir: str = "",
     ):
     xflux_pipeline = XFluxPipeline(model_type, device, offload)
-    checkpoints = sorted(Path(ckpt_dir).glob("*.safetensors"))
+    checkpoints = [str(p) for p in sorted(Path(ckpt_dir).glob("*.safetensors"))]
 
     with gr.Blocks() as demo:
         gr.Markdown(f"# Flux Adapters by XLabs AI - Model: {model_type}")
@@ -198,7 +198,7 @@ def create_demo(
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Flux")
-    parser.add_argument("--name", type=str, default="flux-dev-fp8", help="Model name")
+    parser.add_argument("--name", type=str, default="flux-dev", help="Model name")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu", help="Device to use")
     parser.add_argument("--offload", action="store_true", help="Offload model to CPU when not in use")
     parser.add_argument("--share", action="store_true", help="Create a public link to your demo")

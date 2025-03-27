@@ -96,7 +96,7 @@ To test our checkpoints, you can use several options:
 ### Gradio
 Launch gradio as follows:
 ```
-python3 gradio_demo.py --ckpt_dir model_weights
+python gradio_demo.py --ckpt_dir model_weights --share
 ```
 Define `--ckpt_dir` as the folder location with the downloaded XLabs AI adapter weights (LoRAs, IP-adapter, ControlNets)
 ### IP-Adapter
